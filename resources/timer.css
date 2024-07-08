@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'ubuntumono';
+    src: url('fonts/ubuntumono-bold-webfont.eot');
+    src: url('fonts/ubuntumono-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/ubuntumono-bold-webfont.woff2') format('woff2'),
+         url('fonts/ubuntumono-bold-webfont.woff') format('woff'),
+         url('fonts/ubuntumono-bold-webfont.ttf') format('truetype'),
+         url('fonts/ubuntumono-bold-webfont.svg#ubuntu_monobold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+* {
+    font-family: 'ubuntumono';
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo {
+    max-width: 100vw;
+    max-height: 100vh;
+}
+.timer {
+    font-size: 23vw;
+}
+.blink {
+    color: #f00;
+}
+.hidden {
+    display: none;
+}
+.timer .seconds.hidden {
+    display: initial;
+    visibility: hidden;
+}
