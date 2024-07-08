@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- Copyright (c) Jethro G. Beekman
+
+     This file is part of CCS timer.
+
+     CCS timer program is free software: you can redistribute it and/or modify 
+     it under the terms of the GNU Affero General Public License as published 
+     by the Free Software Foundation, either version 3 of the License, or (at 
+     your option) any later version.
+
+     This program is distributed in the hope that it will be useful, but 
+     WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY 
+     or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public 
+     License for more details.
+
+     You should have received a copy of the GNU Affero General Public License 
+     along with this program. If not, see <https://www.gnu.org/licenses/>. -->
+<html>
+<head>
+<title>CCS timer</title>
+<style type="text/css">
+@font-face {
+    font-family: 'ubuntumono';
+    src: url('resources/fonts/ubuntumono-bold-webfont.eot');
+    src: url('resources/fonts/ubuntumono-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('resources/fonts/ubuntumono-bold-webfont.woff2') format('woff2'),
+         url('resources/fonts/ubuntumono-bold-webfont.woff') format('woff'),
+         url('resources/fonts/ubuntumono-bold-webfont.ttf') format('truetype'),
+         url('resources/fonts/ubuntumono-bold-webfont.svg#ubuntu_monobold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+* {
+    font-family: 'ubuntumono';
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo {
+    max-width: 100vw;
+    max-height: 100vh;
+}
+.timer {
+    font-size: 23vw;
+}
+.blink {
+    color: #f00;
+}
+.hidden {
+    display: none;
+}
+.timer .seconds.hidden {
+    display: initial;
+    visibility: hidden;
+}
+</style>
+<script type="text/javascript" src="scripts/functions.js"></script>
+<script type="text/javascript">
+// Number of minutes remaining at which point quarter minutes will be displayed.
+const quarterMinutesDisplay = 5;
+// Number of minutes remaining at which point seconds will be displayed. Must be
+// less than quarterMinutesDisplay to be effective.
+const secondsDisplay = 1;
+// Number of seconds 00:00:00 will blink on screen after the contest ends.
+const blinkSeconds = 5;
+// Rate (in milliseconds) at which the page will tick.
+const tickRate = 1000;
+// Rate (in ticks) at which the server will be polled.
+const pollRate = 60;
+// Timeout (in milliseconds) after which a server request will be retried
+const pollRetryTimeout = 5000;
+// URL for polling
+const pollUrl = "http://localhost:8000/api/contests/test";
+</script>
+<script type="text/javascript" src="scripts/pageController.js"></script>
+</head>
+<body>
+<img class="logo" src="resources/logo.svg">
+<div class="timer hidden"><span class="hm">12:34</span><span class="seconds hidden">:56</span></div>
+</body>
+</html>
