@@ -75,7 +75,7 @@ const pageController = {
             return;
         }
 
-        fetch(pollUrl, { mode: "cors", credentials: "omit", signal: AbortSignal.timeout(pollRetryTimeout) })
+        fetch(pollUrl, { mode: "cors", credentials: "omit", cache: "no-store", signal: AbortSignal.timeout(pollRetryTimeout) })
             .then((response) => {
                 if (response.ok) {
                     return response.json()

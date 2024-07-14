@@ -23,6 +23,10 @@ body {
     justify-content: center;
     align-items: center;
 }
+.loadfont {
+    visibility: hidden;
+    position: absolute;
+}
 .logo {
     max-width: 100vw;
     max-height: 100vh;
