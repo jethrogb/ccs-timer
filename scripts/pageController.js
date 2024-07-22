@@ -31,7 +31,7 @@ function computeState(timings, currentTime) {
         [remainingTime, s] = divMod(remainingTime, 60);
         s = Math.round(s);
         const [h, m] = divMod(remainingTime, 60);
-        if (m >= quarterMinutesDisplay) {
+        if (h > 0 || m >= quarterMinutesDisplay) {
             return { state: "time", h, m, blink: false };
         } else if (m >= secondsDisplay) {
             return { state: "time", h, m, s: Math.floor(s / 15) * 15, blink: false };
