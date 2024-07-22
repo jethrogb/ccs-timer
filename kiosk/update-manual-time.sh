@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash -x
 #
 # Copyright (c) Jethro G. Beekman
 #
@@ -18,7 +18,7 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 cd -- "$(dirname "$0")"/..
-host=$1
-shift
-rsync --rsh="ssh $*" --relative --mkpath -arv *.html resources/ scripts/ api/contests/manual kiosk/configure*.sh $host:setup/html/
-ssh "$@" $host sudo setup/html/kiosk/configure.sh
+
+for n in 1 2; do
+	ssh raspberrypi$n.local "$@" sudo dd of=/var/www/html/api/contests/manual < api/contests/manual
+done
